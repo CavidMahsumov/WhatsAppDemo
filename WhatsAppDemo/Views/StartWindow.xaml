@@ -1,0 +1,17 @@
+﻿<Window x:Class="WhatsAppDemo.Views.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WhatsAppDemo.Views"
+        mc:Ignorable="d"
+        Title="StartWindow" Height="970" Width="650" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <Image Source="../Images/wp.png" Height="850"></Image>
+            <Button Command="{Binding AgreeAndContinueBtnCommand}" FontWeight="SemiBold" FontSize="19" Style="{StaticResource InformButton}" Width="500" Height="70" Content="Agree And Continue" Foreground="White"></Button>
+        </StackPanel>
+        
+        
+    </Grid>
+</Window>

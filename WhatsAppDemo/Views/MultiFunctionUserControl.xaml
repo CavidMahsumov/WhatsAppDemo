@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="WhatsAppDemo.Views.MultiFunctionUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WhatsAppDemo.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="460">
+    <Grid Background="White" >
+        <WrapPanel>
+            <StackPanel>
+                <Button Command="{Binding ImageBtnCommand}" Margin="20,0,0,0"  Width="50"  Height="50" Content="Abcd">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid>
+                                <Ellipse Fill="DarkGreen"/>
+                                <Image Width="30" Height="30" Source="../Images/ImageIcon.png"></Image>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock Margin="20,20,0,0" FontSize="15" Text="Image" HorizontalAlignment="Center">
+
+                </TextBlock>
+
+            </StackPanel>
+            <StackPanel>
+
+                <Button Command="{Binding LocationBtnCommand}" Margin="20,0,0,0"  Width="50"  Height="50" Content="Abcd">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid>
+                                <Ellipse Fill="DarkGreen"/>
+                                <Image Width="30" Height="30" Source="../Images/Location.png"></Image>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock Margin="20,20,0,0" FontSize="15" Text="Location" HorizontalAlignment="Center">
+
+                </TextBlock>
+            </StackPanel>
+            <StackPanel>
+
+                <Button Command="{Binding PdfBtnCommand}" Margin="20,0,0,0"  Width="50"  Height="50" Content="Abcd">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Fill="DarkGreen"/>
+                            <Image Width="30" Height="30" Source="../Images/Pdf.png"></Image>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+                <TextBlock Margin="20,20,0,0" FontSize="15" Text="PDF" HorizontalAlignment="Center">
+
+                </TextBlock>
+            </StackPanel>
+
+        </WrapPanel>
+    </Grid>
+</UserControl>
