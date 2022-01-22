@@ -21,6 +21,8 @@ namespace WhatsAppDemo.Helper
         public static  ObservableCollection<TcpClient> Clients  { get; set; }
         public static Dictionary<TcpClient, User> clientDict;
         public static User MainUser { get; set; }
+        public static StartWindow startWindow { get; set; }
+        public static RegisterPage register { get; set; }
         public HelperClass()
         {
             User = new User();

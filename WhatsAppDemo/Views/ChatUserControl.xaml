@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WhatsAppDemo.Views" xmlns:i="http://schemas.microsoft.com/netfx/2009/xaml/presentation" xmlns:i1="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:WhatsAppDemo.Views" xmlns:i1="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="670" d:DesignWidth="430">
     <Grid>
@@ -13,33 +13,36 @@
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <WrapPanel Background="Green">
+            <WrapPanel Background="DarkGray">
                 <Image Name="UserImg" Stretch="Fill" Margin="10,20,0,0" Width="50" Height="49"></Image>
-                <TextBlock x:Name="UserName" Text="UserName" Margin="30,20,0,0" FontSize="20"></TextBlock>
+                <TextBlock x:Name="Username" Text="Username" Margin="30,20,0,0" FontSize="20"></TextBlock>
             </WrapPanel>
         </Grid>
 
-        <Grid  AllowDrop="True" Grid.Row="1">
+        <Grid   Grid.Row="1">
+            <Image Stretch="Fill" Source="../Images/wpwalpaper.jpg"></Image>
+            <ListBox Foreground="White" Background="Transparent" AllowDrop="True" Drop="ChatListBox_Drop" DragEnter="ChatListBox_DragEnter"   SelectedItem="{Binding Message}"  Name="ChatListBox" >
 
-            <ListBox AllowDrop="True" Drop="ChatListBox_Drop" DragEnter="ChatListBox_DragEnter"   SelectedItem="{Binding Message}"  Name="ChatListBox" >
                 <i1:Interaction.Triggers>
                     <i1:EventTrigger EventName="MouseDoubleClick">
                         <i1:InvokeCommandAction Command="{Binding MouseDoubleClickCommand}"/>
                     </i1:EventTrigger>
                 </i1:Interaction.Triggers>
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
                             <WrapPanel>
                                 <Image Stretch="Fill"  Width="74" Height="78" Name="Image" Source="{Binding ImagePath}"></Image>
-                                <TextBlock Name="UserNameTxtBlock" Text="{Binding Text}"></TextBlock>
+                                <TextBlock Name="UserNameTxtBlock" FontSize="16" Text="{Binding Text}"></TextBlock>
                             </WrapPanel>
                         </StackPanel>
 
 
                     </DataTemplate>
-                </ListBox.ItemTemplate> -->
+                </ListBox.ItemTemplate>
             </ListBox>
+
         </Grid>
 
         <StackPanel>

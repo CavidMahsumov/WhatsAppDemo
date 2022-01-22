@@ -45,7 +45,7 @@ namespace WhatsAppDemo.ViewModels
 
                     if (File.Exists(@"C:\Users\mehsu\source\repos\WhatsAppDemo\WhatsAppDemo\bin\Debug\1.json"))
                     {
-                        File.AppendAllText(@"C:\Users\mehsu\source\repos\WhatsAppDemo\WhatsAppDemo\bin\Debug\1.json", json);
+                        File.WriteAllText(@"C:\Users\mehsu\source\repos\WhatsAppDemo\WhatsAppDemo\bin\Debug\1.json", json);
                     }
                     else
                     {
@@ -53,7 +53,15 @@ namespace WhatsAppDemo.ViewModels
 
                     }
                     //string json = JsonConvert.SerializeObject(HelperClass.clientDict);
+                    try
+                    {
 
+                        HelperClass.register.Close();
+                    }
+                    catch (Exception)
+                    {
+
+                    }
                     mainWindow.ShowDialog();
                 }
                 catch (Exception ex)

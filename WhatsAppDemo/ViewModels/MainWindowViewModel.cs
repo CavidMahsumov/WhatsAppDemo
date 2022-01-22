@@ -88,7 +88,23 @@ namespace WhatsAppDemo.ViewModels
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-          
+            try
+            {
+                if (new FileInfo(@"C:\Users\mehsu\source\repos\WhatsAppDemo\WhatsAppDemo\bin\Debug\Messages.txt").Length == 0)
+                {
+
+                }
+                else
+                {
+                    MainWindow.Listbox.Items.Add(new User { Name = "UnknownUser", ImagePath = "../Images/usericon.png" });
+                    dispatcherTimer.Stop();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+           
         }
 
         private void ReceiveData(TcpClient client)

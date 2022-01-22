@@ -47,13 +47,21 @@ namespace WhatsAppDemo.ViewModels
             DispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             DispatcherTimer.Tick += DispatcherTimer_Tick;
 
-            App.Current.Dispatcher.Invoke(() =>
+            try
             {
 
-                chatUserControl.UserName.Text = HelperClass.MainUser.Name;
-                chatUserControl.UserImg.Source = new BitmapImage(new Uri(HelperClass.MainUser.ImagePath)) ;
+                App.Current.Dispatcher.Invoke(() =>
+                {
 
-            });
+                    chatUserControl.Username.Text = HelperClass.MainUser.Name;
+                    chatUserControl.UserImg.Source = new BitmapImage(new Uri(HelperClass.MainUser.ImagePath));
+
+                });
+            }
+            catch (Exception)
+            {
+
+            }
             ChatUserControl = chatUserControl;
             HelperClass.chatUserControl = chatUserControl;
             SendBtnCommand = new RelayCommand((sender) =>
@@ -75,11 +83,13 @@ namespace WhatsAppDemo.ViewModels
                             if (chatUserControl.MessageTxtBox.Text == "Location")
                             {
                                 // string filepath1 = @"C:\Users\mehsu\source\repos\WhatsAppDemo\WhatsAppDemo\bin\Debug\Location1.json";//Check
-                                var Location = new Location { ImagePath = "../Images/Location.png", Latitude = HelperClass.CurrentLocation[0], Longitude = HelperClass.CurrentLocation[1] };
+                                //var Location = new Location { ImagePath = "../Images/Location.png", Latitude = HelperClass.CurrentLocation[0], Longitude = HelperClass.CurrentLocation[1] };
                                 //string jsonstr = JsonSerializer.Serialize(Location);
                                 //File.WriteAllText(filepath1, jsonstr);
-                                byte[] buffer = Encoding.ASCII.GetBytes(s);
+
+                                byte[] buffer = Encoding.ASCII.GetBytes("Location");
                                 ns.Write(buffer, 0, buffer.Length);
+                                chatUserControl.MessageTxtBox.Text = null;
                             }
                             else
                             {
@@ -240,9 +250,8 @@ namespace WhatsAppDemo.ViewModels
                             ChatUserControl.ChatListBox.Items.Add(new Voice(VoicePath, "../Images/voicemsg.png"));
                         });
                     }
-                    else if (ExtCl.ValidateJSON(msg))
+                    else if (msg=="Location")
                     {
-                        var Loc = JsonSerializer.Deserialize<Location>(File.ReadAllText(@"C: \Users\mehsu\source\repos\WhatsAppDemo\WhatsAppDemo\bin\Debug\Location1.json"));
                         App.Current.Dispatcher.Invoke(() =>
                         {
 

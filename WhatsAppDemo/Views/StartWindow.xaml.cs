@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WhatsAppDemo.Helper;
 using WhatsAppDemo.ViewModels;
 
 namespace WhatsAppDemo.Views
@@ -23,6 +24,7 @@ namespace WhatsAppDemo.Views
         public StartWindow()
         {
             InitializeComponent();
+            HelperClass.startWindow = this;
             this.DataContext = new StartWindowViewMdoel(this);
         }
     }

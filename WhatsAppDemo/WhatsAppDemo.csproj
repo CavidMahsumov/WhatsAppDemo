@@ -299,10 +299,12 @@
     <Resource Include="Images\dots.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\wpwalpaper.jpg" />
     <Resource Include="Images\phone-call.png" />
     <Resource Include="Images\infobutton.png" />
     <Resource Include="Images\user.png" />
     <Resource Include="Images\Verify.png" />
+    <Resource Include="Images\usericon.png" />
     <Content Include="Images\Welcome.png" />
     <Resource Include="Images\wp.png" />
   </ItemGroup>
